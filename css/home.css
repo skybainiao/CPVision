@@ -1,0 +1,249 @@
+.dt{
+  font-size: 20px;
+  font-weight: bold;
+  top: 30px;
+  left: 40px;
+  position: absolute;
+  color: white;
+}
+
+.time{
+  font-size: 20px;
+  font-weight: bold;
+  top: 120px;
+  left: 40px;
+  position: absolute;
+  color: white;
+}
+
+.score{
+  font-size: 20px;
+  font-weight: bold;
+  top: 90px;
+  left: 40px;
+  position: absolute;
+  color: white;
+}
+
+.level{
+  font-size: 20px;
+  font-weight: bold;
+  top: 60px;
+  left: 40px;
+  position: absolute;
+  color: white;
+}
+
+.speed{
+  font-size: 20px;
+  font-weight: bold;
+  top: 185px;
+  left: 40px;
+  position: absolute;
+  color: white;
+}
+
+.adjustTime{
+  top: 155px;
+  left: 38px;
+  position: absolute;
+}
+
+.adjustSpeed{
+  top: 215px;
+  left: 38px;
+  position: absolute;
+}
+
+.buttons{
+  top: 30px;
+  right: 50px;
+  position: absolute;
+}
+
+.img1{
+  height: 100%;
+  width: 100%;
+}
+
+#text{
+  font-size: 30px;
+  top: 45%;
+  left: 50%;
+  color: white;
+  position: absolute;
+}
+
+#text1{
+  font-size: 30px;
+  top: 45%;
+  left: 52%;
+  color: white;
+  position: absolute;
+  display: none;
+}
+
+#text2{
+  font-size: 30px;
+  top: 45%;
+  left: 54%;
+  color: white;
+  position: absolute;
+  display: none;
+}
+
+#text3{
+  font-size: 30px;
+  top: 40%;
+  left: 50%;
+  color: white;
+  position: absolute;
+  display: none;
+}
+
+#text4{
+  font-size: 30px;
+  top: 40%;
+  left: 52%;
+  color: white;
+  position: absolute;
+  display: none;
+}
+
+#text5{
+  font-size: 30px;
+  top: 40%;
+  left: 54%;
+  color: white;
+  position: absolute;
+  display: none;
+}
+
+#text6{
+  font-size: 30px;
+  top: 35%;
+  left: 50%;
+  color: white;
+  position: absolute;
+  display: none;
+}
+
+#text7{
+  font-size: 30px;
+  top: 35%;
+  left: 52%;
+  color: white;
+  position: absolute;
+  display: none;
+}
+
+#text8{
+  font-size: 30px;
+  top: 35%;
+  left: 54%;
+  color: white;
+  position: absolute;
+  display: none;
+}
+
+
+
+
+
+#button-1{
+  width: 60%;
+  height: 5%;
+  background-color: red;
+  color: white;
+  bottom: 10%;
+  left: 20%;
+  position: absolute;
+}
+
+#arrows{
+  position: absolute;
+  bottom: 10%;
+  right: 12%;
+}
+
+#arrow-1{
+  width: 50px;
+}
+
+#arrow-2{
+  position: absolute;
+  width: 50px;
+  transform: rotate(90deg);
+  bottom: 100%;
+}
+
+#arrow-3{
+  position: absolute;
+  width: 50px;
+  transform: rotate(180deg);
+  left: 200%;
+}
+
+#arrow-4{
+  position: absolute;
+  width: 50px;
+  transform: rotate(270deg);
+  top: 100%;
+}
+
+#left{
+  position: absolute;
+  width: 50px;
+  bottom: -3.5px;
+  left: 27px;
+  color: white;
+}
+
+#up{
+  position: absolute;
+  width: 50px;
+  bottom: 34px;
+  left: 67.5px;
+  color: white;
+}
+
+#down{
+  position: absolute;
+  width: 50px;
+  left: 70px;
+  bottom: -42px;
+  color: white;
+}
+
+#right{
+  position: absolute;
+  width: 50px;
+  bottom: -4.5px;
+  left: 110px;
+  color: white;
+}
+
+#red{
+  position: absolute;
+  width: 50px;
+  top: 30%;
+  left: 70%;
+  display: none;
+}
+
+#web_bg{
+  position:fixed;
+  top: 0;
+  left: 0;
+  width:150%;
+  height:150%;
+  min-width: 1000px;
+  z-index:-10;
+  zoom: 1;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-position: center 0;
+}
