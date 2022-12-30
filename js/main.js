@@ -1111,7 +1111,7 @@ function countdown(){
         text1.style.display='block';
       }
       else if (timeout===275 && scores<100){
-        showText("Level not finished successfully. Try again",4);
+        showText("Level not finished successfully. Try again(restart)",4);
         //showButton();
         //alert("You failed,you can restart the game");
       }
@@ -1123,7 +1123,7 @@ function countdown(){
         text2.style.display='block';
       }
       else if (timeout===225 && scores<400){
-        showText("Level not finished successfully. Try again",4);
+        showText("Level not finished successfully. Try again(restart)",4);
         //alert("You failed,you can restart the game");
       }
 
@@ -1139,7 +1139,7 @@ function countdown(){
         text8.style.display='block';
       }
       else if (timeout===150 && scores<1000){
-        showText("Level not finished successfully. Try again",4);
+        showText("Level not finished successfully. Try again(restart)",4);
         //alert("You failed,you can restart the game");
       }
 
@@ -1149,7 +1149,7 @@ function countdown(){
         //alert("You passed all levels!")
       }
       else if (timeout===50 && scores<1500){
-        showText("Level not finished successfully. Try again",4);
+        showText("Level not finished successfully. Try again(restart)",4);
         //alert("You failed,you can restart the game");
       }
 
