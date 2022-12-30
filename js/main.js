@@ -69,7 +69,7 @@ let overtime = false;
 
 
 window.onload=function () {
-  //read();
+  read();
   setText();
   starShow();
   countdown();
@@ -1101,13 +1101,18 @@ function save() {
 }
 
 function read() {
-  if (parseInt(localStorage.getItem('level'))===1 || 2 || 3 || 4){
-    timeout=localStorage.getItem('time');
+  if (!isNaN(parseInt(localStorage.getItem('time')))){
+    timeout=parseInt(localStorage.getItem('time'));
     level=parseInt(localStorage.getItem('level'));
     scores=parseInt(localStorage.getItem('scores'));
     document.getElementById('time-1').innerHTML="Daily training: "+timeout;
     document.getElementById('level-1').innerHTML="Level: "+level;
     document.getElementById('score-1').innerHTML="Scores: "+scores;
+  }
+  else{
+    console.log(localStorage.getItem('time'));
+    console.log(localStorage.getItem('level'));
+    console.log(localStorage.getItem('scores'));
   }
 }
 
