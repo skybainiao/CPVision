@@ -1116,13 +1116,16 @@ function read() {
   }
 
   if (level===2){
+    console.log(level);
     text1.style.display='block';
   }
   else if (level===3){
+    console.log(level);
     text1.style.display='block';
     text2.style.display='block';
   }
   else if (level===4){
+    console.log(level);
     text1.style.display='block';
     text2.style.display='block';
     text3.style.display='block';
