@@ -69,7 +69,7 @@ let overtime = false;
 
 
 window.onload=function () {
-  read();
+  //read();
   setText();
   starShow();
   countdown();
