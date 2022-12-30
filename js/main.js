@@ -36,11 +36,18 @@ let restart = document.getElementById('restart-1');
 restart.onclick = () =>restart1();
 let quit = document.getElementById('quit-1');
 quit.onclick = () =>quit1();
+let tipButton = document.getElementById('tipButton');
+let tips = document.getElementById('tipText');
+let bt1 = document.getElementById('tipExit');
+bt1.onclick = () =>exit1();
+let bt2 = document.getElementById('continue1');
+bt2.onclick = () =>continue1();
 
 let num1 = 0;
 let num2 = 0;
 let num3 = 0;
 let num4 = 0;
+let now = 0;
 let numForPosition = 0;
 let letter = 'W';
 let letter1 = 'F';
@@ -58,6 +65,8 @@ let turnOn=false;
 let countdownTimer;
 let countDownStar;
 let StarShow;
+let timeDown;
+let lock = false;
 
 
 window.onload=function () {
@@ -148,14 +157,14 @@ function space() {
 function arrows2() {
   changePosition();
   setText678();
-    if (letter==='W'){
-      scores+=10;
-    }
-    else {
-      scores-=10;
-    }
-    refreshScores();
-    setText();
+  if (letter==='W'){
+    scores+=10;
+  }
+  else {
+    scores-=10;
+  }
+  refreshScores();
+  setText();
 }
 
 function arrows1() {
@@ -417,256 +426,256 @@ function changePosition() {
 function keyboard() {
   document.onkeydown=function () {
 
-    let keyCode=event.keyCode;
-    if (keyCode===32){
-      if (show===true && starOn===true){
-        scores+=10;
-        changeSpeed();
-        starOn=false;
-      }
-      else if (show===false){
-        scores-=10;
-        starOn=false;
-      }
-      refreshScores();
-    }
-    if (keyCode===87 || keyCode===38){
-      changePosition();
-      setText678();
-      if (letter==='W'){
-        scores+=10;
-      }
-      else {
-        scores-=10;
-      }
-      refreshScores();
-      setText();
-    }
-    if (keyCode===65 || keyCode===37){
-      changePosition();
-      setText678();
-      if (letter==='A'){
-        scores+=10;
-      }
-      else {
-        scores-=10;
-      }
-      refreshScores();
-      setText();
-    }
-    if (keyCode===83 || keyCode===40){
-      changePosition();
-      setText678();
-      if (letter==='S'){
-        scores+=10;
-      }
-      else {
-        scores-=10;
-      }
-      refreshScores();
-      setText();
-    }
-    if (keyCode===68 || keyCode===39){
-      changePosition();
-      setText678();
-      if (letter==='D'){
-        scores+=10;
-      }
-      else {
-        scores-=10;
-      }
-      refreshScores();
-      setText();
-    }
+    if (lock===false) {
+      let keyCode = event.keyCode;
+      if (keyCode === 32) {
+        if (show === true && starOn === true) {
+          scores += 10;
+          changeSpeed();
+          starOn = false;
+        } else if (show === false) {
+          scores -= 10;
+          starOn = false;
+        }
 
-    if (keyCode===70){
-      changePosition();
-      setText678();
-      if (letter1==='F'){
-        scores-=10;
+        if (star.style.display==='none'){
+          scores -= 10;
+        }
+        refreshScores();
       }
-      refreshScores();
-      setText1();
-    }
-    if (keyCode===67){
-      changePosition();
-      setText678();
-      if (letter1==='C'){
-        scores-=10;
+      if (keyCode === 87 || keyCode === 38) {
+        changePosition();
+        setText678();
+        if (letter === 'W') {
+          scores += 10;
+        } else {
+          scores -= 10;
+        }
+        refreshScores();
+        setText();
       }
-      refreshScores();
-      setText1();
-    }
-    if (keyCode===66){
-      changePosition();
-      setText678();
-      if (letter1==='B'){
-        scores-=10;
+      if (keyCode === 65 || keyCode === 37) {
+        changePosition();
+        setText678();
+        if (letter === 'A') {
+          scores += 10;
+        } else {
+          scores -= 10;
+        }
+        refreshScores();
+        setText();
       }
-      refreshScores();
-      setText1();
-    }
-    if (keyCode===84){
-      changePosition();
-      setText678();
-      if (letter1==='T'){
-        scores-=10;
+      if (keyCode === 83 || keyCode === 40) {
+        changePosition();
+        setText678();
+        if (letter === 'S') {
+          scores += 10;
+        } else {
+          scores -= 10;
+        }
+        refreshScores();
+        setText();
       }
-      refreshScores();
-      setText1();
-    }
+      if (keyCode === 68 || keyCode === 39) {
+        changePosition();
+        setText678();
+        if (letter === 'D') {
+          scores += 10;
+        } else {
+          scores -= 10;
+        }
+        refreshScores();
+        setText();
+      }
+
+      if (keyCode === 70) {
+        changePosition();
+        setText678();
+        if (letter1 === 'F') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText1();
+      }
+      if (keyCode === 67) {
+        changePosition();
+        setText678();
+        if (letter1 === 'C') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText1();
+      }
+      if (keyCode === 66) {
+        changePosition();
+        setText678();
+        if (letter1 === 'B') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText1();
+      }
+      if (keyCode === 84) {
+        changePosition();
+        setText678();
+        if (letter1 === 'T') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText1();
+      }
 
 
-    if (keyCode===85){
-      changePosition();
-      setText678();
-      if (letter2==='U'){
-        scores-=10;
+      if (keyCode === 85) {
+        changePosition();
+        setText678();
+        if (letter2 === 'U') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText2();
       }
-      refreshScores();
-      setText2();
-    }
-    if (keyCode===74){
-      changePosition();
-      setText678();
-      if (letter2==='J'){
-        scores-=10;
+      if (keyCode === 74) {
+        changePosition();
+        setText678();
+        if (letter2 === 'J') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText2();
       }
-      refreshScores();
-      setText2();
-    }
-    if (keyCode===73){
-      changePosition();
-      setText678();
-      if (letter2==='I'){
-        scores-=10;
+      if (keyCode === 73) {
+        changePosition();
+        setText678();
+        if (letter2 === 'I') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText2();
       }
-      refreshScores();
-      setText2();
-    }
-    if (keyCode===79){
-      changePosition();
-      setText678();
-      if (letter2==='O'){
-        scores-=10;
+      if (keyCode === 79) {
+        changePosition();
+        setText678();
+        if (letter2 === 'O') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText2();
       }
-      refreshScores();
-      setText2();
-    }
 
-    ////////////////////
-    if (keyCode===69){
-      changePosition();
-      setText678();
-      if (letter3==='E'){
-        scores-=10;
+      ////////////////////
+      if (keyCode === 69) {
+        changePosition();
+        setText678();
+        if (letter3 === 'E') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText3();
       }
-      refreshScores();
-      setText3();
-    }
-    if (keyCode===71){
-      changePosition();
-      setText678();
-      if (letter3==='G'){
-        scores-=10;
+      if (keyCode === 71) {
+        changePosition();
+        setText678();
+        if (letter3 === 'G') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText3();
       }
-      refreshScores();
-      setText3();
-    }
-    if (keyCode===75){
-      changePosition();
-      setText678();
-      if (letter3==='K'){
-        scores-=10;
+      if (keyCode === 75) {
+        changePosition();
+        setText678();
+        if (letter3 === 'K') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText3();
       }
-      refreshScores();
-      setText3();
-    }
-    if (keyCode===80){
-      changePosition();
-      setText678();
-      if (letter3==='P'){
-        scores-=10;
+      if (keyCode === 80) {
+        changePosition();
+        setText678();
+        if (letter3 === 'P') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText3();
       }
-      refreshScores();
-      setText3();
-    }
 
-    ////////
-    if (keyCode===82){
-      changePosition();
-      setText678();
-      if (letter4==='R'){
-        scores-=10;
+      ////////
+      if (keyCode === 82) {
+        changePosition();
+        setText678();
+        if (letter4 === 'R') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText4();
       }
-      refreshScores();
-      setText4();
-    }
-    if (keyCode===86){
-      changePosition();
-      setText678();
-      if (letter4==='V'){
-        scores-=10;
+      if (keyCode === 86) {
+        changePosition();
+        setText678();
+        if (letter4 === 'V') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText4();
       }
-      refreshScores();
-      setText4();
-    }
-    if (keyCode===88){
-      changePosition();
-      setText678();
-      if (letter4==='X'){
-        scores-=10;
+      if (keyCode === 88) {
+        changePosition();
+        setText678();
+        if (letter4 === 'X') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText4();
       }
-      refreshScores();
-      setText4();
-    }
-    if (keyCode===90){
-      changePosition();
-      setText678();
-      if (letter4==='Z'){
-        scores-=10;
+      if (keyCode === 90) {
+        changePosition();
+        setText678();
+        if (letter4 === 'Z') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText4();
       }
-      refreshScores();
-      setText4();
-    }
 
-    if (keyCode===81){
-      changePosition();
-      setText678();
-      if (letter5==='Q'){
-        scores-=10;
+      if (keyCode === 81) {
+        changePosition();
+        setText678();
+        if (letter5 === 'Q') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText5();
       }
-      refreshScores();
-      setText5();
-    }
-    if (keyCode===89){
-      changePosition();
-      setText678();
-      if (letter5==='y'){
-        scores-=10;
+      if (keyCode === 89) {
+        changePosition();
+        setText678();
+        if (letter5 === 'y') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText5();
       }
-      refreshScores();
-      setText5();
-    }
-    if (keyCode===72){
-      changePosition();
-      setText678();
-      if (letter5==='H'){
-        scores-=10;
+      if (keyCode === 72) {
+        changePosition();
+        setText678();
+        if (letter5 === 'H') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText5();
       }
-      refreshScores();
-      setText5();
-    }
-    if (keyCode===76){
-      changePosition();
-      setText678();
-      if (letter5==='L'){
-        scores-=10;
+      if (keyCode === 76) {
+        changePosition();
+        setText678();
+        if (letter5 === 'L') {
+          scores -= 10;
+        }
+        refreshScores();
+        setText5();
       }
-      refreshScores();
-      setText5();
     }
-
   }
 }
 
@@ -1028,7 +1037,7 @@ function starShow() {
 }
 
 function refreshTime(){
-  document.getElementById('time-1').innerHTML="Time: "+timeout;
+  document.getElementById('time-1').innerHTML="Daily training: "+timeout;
 }
 
 function refreshScores() {
@@ -1042,6 +1051,55 @@ function destroy(){
   refreshTime();
 }
 
+function showText(content,time) {
+  tips.innerHTML=content;
+  tips.style.display='block';
+  stopTime();
+  lock1();
+  timeDown = setInterval(function () {
+    time--;
+    if (time<=0){
+      unlock();
+      countdown();
+      tips.style.display='none';
+      clearInterval(timeDown);
+    }
+  },1000);
+}
+
+function showButton() {
+  tipButton.style.display='block';
+}
+
+function stopTime() {
+  turnOn=false;
+  clearInterval(countdownTimer);
+}
+
+function continue1() {
+  unlock();
+  timeout=100000;
+  refreshTime();
+  countdown();
+  tips.style.display='none';
+  tipButton.style.display='none';
+}
+
+function exit1() {
+  exit();
+  tips.style.display='none';
+  tipButton.style.display='none';
+}
+
+function lock1() {
+  lock=true;
+}
+
+function unlock() {
+  lock=false;
+}
+
+
 //countDown System
 function countdown(){
   if (turnOn===false){
@@ -1052,32 +1110,35 @@ function countdown(){
         timeout--;
       }
       else if (timeout<=0){
-        destroy();
-        alert("Time's up");
+        showText("You have finished daily exercise.Would you like to continue or exit the game?");
+        showButton();
       }
 
       if (timeout===275 && scores>=100){
-        console.log("changeLevel");
+        showText("Great Job! Level 1 has been passed,Next level starts in: 3 seconds",4);
         changeLevel();
         text1.style.display='block';
       }
       else if (timeout===275 && scores<100){
-        alert("You failed,you can restart the game");
+        showText("Level not finished successfully. Try again",4);
+        //showButton();
+        //alert("You failed,you can restart the game");
       }
 
 
       if (timeout===225 && scores>=400){
-        console.log("changeLevel");
+        showText("Great Job! Level 2 has been passed,Next level starts in: 3 seconds",4);
         changeLevel();
         text2.style.display='block';
       }
       else if (timeout===225 && scores<400){
-        alert("You failed,you can restart the game");
+        showText("Level not finished successfully. Try again",4);
+        //alert("You failed,you can restart the game");
       }
 
 
       if (timeout===150 && scores>=1000){
-        console.log("changeLevel");
+        showText("Great Job! Level 3 has been passed,Next level starts in: 3 seconds",4);
         changeLevel();
         text3.style.display='block';
         text4.style.display='block';
@@ -1087,14 +1148,18 @@ function countdown(){
         text8.style.display='block';
       }
       else if (timeout===150 && scores<1000){
-        alert("You failed,you can restart the game");
+        showText("Level not finished successfully. Try again",4);
+        //alert("You failed,you can restart the game");
       }
 
       if (timeout===50 && scores>=1500){
-        alert("You passed all levels!")
+        showText("You have passed all levels.Would you like to continue or exit the game?");
+        showButton();
+        //alert("You passed all levels!")
       }
       else if (timeout===50 && scores<1500){
-        alert("You failed,you can restart the game");
+        showText("Level not finished successfully. Try again",4);
+        //alert("You failed,you can restart the game");
       }
 
 
