@@ -1101,7 +1101,7 @@ function save() {
 }
 
 function read() {
-  if (localStorage.getItem('time')!==null && localStorage.getItem('level')!==null && localStorage.getItem('scores')!==null){
+  if (localStorage.getItem('time')!=="" && localStorage.getItem('level')!=="" && localStorage.getItem('scores')!==""){
     timeout=localStorage.getItem('time');
     level=localStorage.getItem('level');
     scores= parseInt(localStorage.getItem('scores'));
