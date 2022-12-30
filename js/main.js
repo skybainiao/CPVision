@@ -1101,12 +1101,14 @@ function save() {
 }
 
 function read() {
-  timeout=localStorage.getItem('time');
-  level=localStorage.getItem('level');
-  scores= parseInt(localStorage.getItem('scores'));
-  document.getElementById('time-1').innerHTML="Daily training: "+timeout;
-  document.getElementById('level-1').innerHTML="Level: "+level;
-  document.getElementById('score-1').innerHTML="Scores: "+scores;
+  if (localStorage.getItem('time')!==null && localStorage.getItem('level')!==null && localStorage.getItem('scores')!==null){
+    timeout=localStorage.getItem('time');
+    level=localStorage.getItem('level');
+    scores= parseInt(localStorage.getItem('scores'));
+    document.getElementById('time-1').innerHTML="Daily training: "+timeout;
+    document.getElementById('level-1').innerHTML="Level: "+level;
+    document.getElementById('score-1').innerHTML="Scores: "+scores;
+  }
 }
 
 
