@@ -59,8 +59,8 @@ let scores = 0;
 let level = 1;
 let speeds = 1;
 let timeout=300;
-let show = true;
-let starOn = true;
+//let show = true;
+//let starOn = true;
 let turnOn=false;
 let countdownTimer;
 let countDownStar;
@@ -429,18 +429,14 @@ function keyboard() {
     if (lock===false) {
       let keyCode = event.keyCode;
       if (keyCode === 32) {
-        if (show === true && starOn === true) {
+        if (star.style.display==='block') {
           scores += 10;
           changeSpeed();
-          starOn = false;
-        } else if (show === false) {
+        }
+        else if (star.style.display==='none') {
           scores -= 10;
-          starOn = false;
         }
 
-        if (star.style.display==='none'){
-          scores -= 10;
-        }
         refreshScores();
       }
       if (keyCode === 87 || keyCode === 38) {
@@ -688,97 +684,97 @@ function recursion() {
   num2=Math.floor(Math.random() * 16);
   num3=Math.floor(Math.random() * 31);
   if (num3===0){
-    num4=100;
-  }
-  else if (num3===1){
-    num4=200;
-  }
-  else if (num3===2){
-    num4=300;
-  }
-  else if (num3===3){
-    num4=400;
-  }
-  else if (num3===4){
     num4=500;
   }
-  else if (num3===5){
+  else if (num3===1){
     num4=600;
   }
-  else if (num3===6){
+  else if (num3===2){
     num4=700;
   }
-  else if (num3===7){
+  else if (num3===3){
     num4=800;
   }
-  else if (num3===8){
+  else if (num3===4){
     num4=900;
   }
-  else if (num3===9){
+  else if (num3===5){
     num4=1000;
   }
-  else if (num3===10){
+  else if (num3===6){
     num4=1100;
   }
-  else if (num3===11){
+  else if (num3===7){
     num4=1200;
   }
-  else if (num3===12){
+  else if (num3===8){
     num4=1300;
   }
-  else if (num3===13){
+  else if (num3===9){
     num4=1400;
   }
-  else if (num3===14){
+  else if (num3===10){
     num4=1500;
   }
-  else if (num3===15){
+  else if (num3===11){
     num4=1600;
   }
-  else if (num3===16){
+  else if (num3===12){
     num4=1700;
   }
-  else if (num3===17){
+  else if (num3===13){
     num4=1800;
   }
-  else if (num3===18){
+  else if (num3===14){
     num4=1900;
   }
-  else if (num3===19){
+  else if (num3===15){
     num4=2000;
   }
+  else if (num3===16){
+    num4=2100;
+  }
+  else if (num3===17){
+    num4=2200;
+  }
+  else if (num3===18){
+    num4=2300;
+  }
+  else if (num3===19){
+    num4=2400;
+  }
   else if (num3===20){
-    num4=4100;
+    num4=2500;
   }
   else if (num3===21){
-    num4=4200;
+    num4=2600;
   }
   else if (num3===22){
-    num4=4300;
+    num4=2700;
   }
   else if (num3===23){
-    num4=4400;
+    num4=2800;
   }
   else if (num3===24){
-    num4=4500;
+    num4=2900;
   }
   else if (num3===25){
-    num4=4600;
+    num4=3000;
   }
   else if (num3===26){
-    num4=4700;
+    num4=3100;
   }
   else if (num3===27){
-    num4=4800;
+    num4=3200;
   }
   else if (num3===28){
-    num4=4900;
+    num4=3300;
   }
   else if (num3===29){
-    num4=5000;
+    num4=3400;
   }
   else if (num3===30){
-    num4=5100;
+    num4=3500;
   }
 }
 
