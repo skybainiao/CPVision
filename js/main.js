@@ -58,13 +58,14 @@ let letter5 = 'U';
 let scores = 0;
 let level = 1;
 let speeds = 1;
-let timeout=300;
+let timeout=5;
 let turnOn=false;
 let countdownTimer;
 let countDownStar;
 let StarShow;
 let timeDown;
 let lock = false;
+let overtime = false;
 
 
 window.onload=function () {
@@ -1068,8 +1069,9 @@ function stopTime() {
 }
 
 function continue1() {
+  overtime=true;
   unlock();
-  timeout=100000;
+  timeout=300;
   refreshTime();
   countdown();
   tips.style.display='none';
@@ -1105,52 +1107,55 @@ function countdown(){
         showButton();
       }
 
-      if (timeout===275 && scores>=100){
-        showText("Great Job! Level 1 has been passed,Next level starts in: 3 seconds",4);
-        changeLevel();
-        text1.style.display='block';
-      }
-      else if (timeout===275 && scores<100){
-        showText("Level not finished successfully. Try again(restart)",4);
-        //showButton();
-        //alert("You failed,you can restart the game");
-      }
+      if (overtime===false){
+        if (timeout===275 && scores>=100){
+          showText("Great Job! Level 1 has been passed,Next level starts in: 3 seconds",4);
+          changeLevel();
+          text1.style.display='block';
+        }
+        else if (timeout===275 && scores<100){
+          showText("Level not finished successfully. Try again(restart)",4);
+          //showButton();
+          //alert("You failed,you can restart the game");
+        }
 
 
-      if (timeout===225 && scores>=400){
-        showText("Great Job! Level 2 has been passed,Next level starts in: 3 seconds",4);
-        changeLevel();
-        text2.style.display='block';
-      }
-      else if (timeout===225 && scores<400){
-        showText("Level not finished successfully. Try again(restart)",4);
-        //alert("You failed,you can restart the game");
-      }
+        if (timeout===225 && scores>=400){
+          showText("Great Job! Level 2 has been passed,Next level starts in: 3 seconds",4);
+          changeLevel();
+          text2.style.display='block';
+        }
+        else if (timeout===225 && scores<400){
+          showText("Level not finished successfully. Try again(restart)",4);
+          //alert("You failed,you can restart the game");
+        }
 
 
-      if (timeout===150 && scores>=1000){
-        showText("Great Job! Level 3 has been passed,Next level starts in: 3 seconds",4);
-        changeLevel();
-        text3.style.display='block';
-        text4.style.display='block';
-        text5.style.display='block';
-        text6.style.display='block';
-        text7.style.display='block';
-        text8.style.display='block';
-      }
-      else if (timeout===150 && scores<1000){
-        showText("Level not finished successfully. Try again(restart)",4);
-        //alert("You failed,you can restart the game");
-      }
+        if (timeout===150 && scores>=1000){
+          showText("Great Job! Level 3 has been passed,Next level starts in: 3 seconds",4);
+          changeLevel();
+          text3.style.display='block';
+          text4.style.display='block';
+          text5.style.display='block';
+          text6.style.display='block';
+          text7.style.display='block';
+          text8.style.display='block';
+        }
+        else if (timeout===150 && scores<1000){
+          showText("Level not finished successfully. Try again(restart)",4);
+          //alert("You failed,you can restart the game");
+        }
 
-      if (timeout===50 && scores>=1500){
-        showText("You have passed all levels.Would you like to continue or exit the game?");
-        showButton();
-        //alert("You passed all levels!")
-      }
-      else if (timeout===50 && scores<1500){
-        showText("Level not finished successfully. Try again(restart)",4);
-        //alert("You failed,you can restart the game");
+        if (timeout===50 && scores>=1500){
+          showText("You have passed all levels.Would you like to continue or exit the game?");
+          showButton();
+          //alert("You passed all levels!")
+        }
+        else if (timeout===50 && scores<1500){
+          showText("Level not finished successfully. Try again(restart)",4);
+          //alert("You failed,you can restart the game");
+        }
+
       }
 
 
