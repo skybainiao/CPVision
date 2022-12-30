@@ -1114,6 +1114,24 @@ function read() {
     console.log(localStorage.getItem('level'));
     console.log(localStorage.getItem('scores'));
   }
+
+  if (level===2){
+    text1.style.display='block';
+  }
+  else if (level===3){
+    text1.style.display='block';
+    text2.style.display='block';
+  }
+  else if (level===4){
+    text1.style.display='block';
+    text2.style.display='block';
+    text3.style.display='block';
+    text4.style.display='block';
+    text5.style.display='block';
+    text6.style.display='block';
+    text7.style.display='block';
+    text8.style.display='block';
+  }
 }
 
 
