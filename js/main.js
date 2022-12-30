@@ -1101,10 +1101,10 @@ function save() {
 }
 
 function read() {
-  if (localStorage.getItem('time')!=="" && localStorage.getItem('level')!=="" && localStorage.getItem('scores')!==""){
+  if (parseInt(localStorage.getItem('level'))===1 || 2 || 3 || 4){
     timeout=localStorage.getItem('time');
-    level=localStorage.getItem('level');
-    scores= parseInt(localStorage.getItem('scores'));
+    level=parseInt(localStorage.getItem('level'));
+    scores=parseInt(localStorage.getItem('scores'));
     document.getElementById('time-1').innerHTML="Daily training: "+timeout;
     document.getElementById('level-1').innerHTML="Level: "+level;
     document.getElementById('score-1').innerHTML="Scores: "+scores;
