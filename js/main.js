@@ -58,7 +58,7 @@ let letter5 = 'U';
 let scores = 0;
 let level = 1;
 let speeds = 1;
-let timeout=5;
+let timeout=300;
 let turnOn=false;
 let countdownTimer;
 let countDownStar;
@@ -69,6 +69,7 @@ let overtime = false;
 
 
 window.onload=function () {
+  read();
   setText();
   starShow();
   countdown();
@@ -90,7 +91,8 @@ function restart1() {
 }
 
 function quit1() {
-
+  save();
+  window.close();
 }
 
 function clearText() {
@@ -1079,7 +1081,7 @@ function continue1() {
 }
 
 function exit1() {
-  exit();
+  quit1();
   tips.style.display='none';
   tipButton.style.display='none';
 }
@@ -1090,6 +1092,21 @@ function lock1() {
 
 function unlock() {
   lock=false;
+}
+
+function save() {
+  localStorage.setItem('time',timeout);
+  localStorage.setItem('level',level);
+  localStorage.setItem('scores',scores);
+}
+
+function read() {
+  timeout=localStorage.getItem('time');
+  level=localStorage.getItem('level');
+  scores= parseInt(localStorage.getItem('scores'));
+  document.getElementById('time-1').innerHTML="Daily training: "+timeout;
+  document.getElementById('level-1').innerHTML="Level: "+level;
+  document.getElementById('score-1').innerHTML="Scores: "+scores;
 }
 
 
@@ -1114,6 +1131,7 @@ function countdown(){
           text1.style.display='block';
         }
         else if (timeout===275 && scores<100){
+          restart1();
           showText("Level not finished successfully. Try again(restart)",4);
           //showButton();
           //alert("You failed,you can restart the game");
@@ -1126,6 +1144,7 @@ function countdown(){
           text2.style.display='block';
         }
         else if (timeout===225 && scores<400){
+          restart1();
           showText("Level not finished successfully. Try again(restart)",4);
           //alert("You failed,you can restart the game");
         }
@@ -1142,6 +1161,7 @@ function countdown(){
           text8.style.display='block';
         }
         else if (timeout===150 && scores<1000){
+          restart1();
           showText("Level not finished successfully. Try again(restart)",4);
           //alert("You failed,you can restart the game");
         }
@@ -1152,6 +1172,7 @@ function countdown(){
           //alert("You passed all levels!")
         }
         else if (timeout===50 && scores<1500){
+          restart1();
           showText("Level not finished successfully. Try again(restart)",4);
           //alert("You failed,you can restart the game");
         }
