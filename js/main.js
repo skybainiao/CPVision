@@ -59,8 +59,6 @@ let scores = 0;
 let level = 1;
 let speeds = 1;
 let timeout=300;
-//let show = true;
-//let starOn = true;
 let turnOn=false;
 let countdownTimer;
 let countDownStar;
@@ -74,8 +72,7 @@ window.onload=function () {
   starShow();
   countdown();
   keyboard();
-  console.log(show);
-  console.log(starOn);
+
 }
 
 function restart1() {
@@ -142,15 +139,14 @@ function refreshTime(){
 }
 
 function space() {
-  if (show===true && starOn===true){
-    scores+=10;
+  if (star.style.display==='block') {
+    scores += 10;
     changeSpeed();
-    starOn=false;
   }
-  else if (show===false){
-    scores-=10;
-    starOn=false;
+  else if (star.style.display==='none') {
+    scores -= 10;
   }
+
   refreshScores();
 }
 
@@ -941,8 +937,7 @@ function setText678() {
 function starShow() {
   star.style.display='block';
   countDownStar = setInterval(function () {
-    starOn=true;
-    show=true;
+
     recursion();
     console.log(num4);
     if (num1===0){
@@ -1022,11 +1017,11 @@ function starShow() {
   StarShow = setInterval(function () {
     recursion();
     if (star.style.display==='block'){
-      show=false;
+
       star.style.display='none';
     }
     else {
-      show=true;
+
       star.style.display='block';
     }
   },num4);
